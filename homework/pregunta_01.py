@@ -1,10 +1,6 @@
 # pylint: disable=import-outside-toplevel
 # pylint: disable=line-too-long
 # flake8: noqa
-"""
-Escriba el codigo que ejecute la accion solicitada en cada pregunta.
-"""
-
 
 import os
 import pandas as pd
