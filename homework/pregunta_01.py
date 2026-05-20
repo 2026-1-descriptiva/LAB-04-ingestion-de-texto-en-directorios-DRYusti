@@ -1,6 +1,10 @@
 # pylint: disable=import-outside-toplevel
 # pylint: disable=line-too-long
 # flake8: noqa
+"""
+Escriba el codigo que ejecute la accion solicitada en cada pregunta.
+"""
+
 
 import os
 import pandas as pd
@@ -23,12 +27,11 @@ def pregunta_01():
     train_df = build_dataset("train")
     test_df = build_dataset("test")
 
-    train_df.to_csv("files/output/train_dataset.csv", index=False)
-    test_df.to_csv("files/output/test_dataset.csv", index=False)
+    train_df.to_csv("output/train_dataset.csv", index=False)
+    test_df.to_csv("output/test_dataset.csv", index=False)
 
 
 pregunta_01()
-
 """
     La información requerida para este laboratio esta almacenada en el
     archivo "files/input.zip" ubicado en la carpeta raíz.
