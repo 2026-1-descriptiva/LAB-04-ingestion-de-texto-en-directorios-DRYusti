@@ -6,8 +6,34 @@ Escriba el codigo que ejecute la accion solicitada en cada pregunta.
 """
 
 
+import os
+import pandas as pd
+
+
 def pregunta_01():
-    """
+    os.makedirs("output", exist_ok=True)
+
+    def build_dataset(split):
+        rows = []
+        for sentiment in ["positive", "negative", "neutral"]:
+            folder = os.path.join("files", "input", split, sentiment)
+            for filename in sorted(os.listdir(folder)):
+                filepath = os.path.join(folder, filename)
+                with open(filepath, "r", encoding="utf-8") as f:
+                    phrase = f.read().strip()
+                rows.append({"phrase": phrase, "target": sentiment})
+        return pd.DataFrame(rows, columns=["phrase", "target"])
+
+    train_df = build_dataset("train")
+    test_df = build_dataset("test")
+
+    train_df.to_csv("files/output/train_dataset.csv", index=False)
+    test_df.to_csv("files/output/test_dataset.csv", index=False)
+
+
+pregunta_01()
+
+"""
     La información requerida para este laboratio esta almacenada en el
     archivo "files/input.zip" ubicado en la carpeta raíz.
     Descomprima este archivo.
